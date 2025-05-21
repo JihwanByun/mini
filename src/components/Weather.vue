@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[100%] flex items-center">
+  <div class="h-[auto] flex items-center">
     <span class="text-[20px] mr-[10px] text-white font-[800]">{{ temp }}</span
     ><span class="text-[40px] mr-[30px]">{{ getWeatherIcon(weather) }}</span>
   </div>

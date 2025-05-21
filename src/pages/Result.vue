@@ -57,10 +57,24 @@
       </div>
       <!-- 버튼 추가 -->
       <router-link
-        to="/another-page"
-        class="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-center whitespace-nowrap"
+        to="/jobs"
+        class="inline-flex items-center gap-2 px-5 py-2 bg-teal-600 text-white font-semibold rounded-xl shadow hover:bg-teal-700 transition-all duration-300"
       >
-        다른 페이지로 이동
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+        페이지 이동
       </router-link>
     </div>
 
@@ -113,6 +127,7 @@
 import { onMounted, computed, ref } from "vue";
 import { useDataStore } from "../stores/dataStore";
 import { useRoute } from "vue-router";
+import Weather from "../components/Weather.vue";
 
 const store = useDataStore();
 const route = useRoute();
