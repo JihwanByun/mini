@@ -4,7 +4,7 @@ import Weather from "./components/Weather.vue";
 </script>
 
 <template>
-  <Main></Main>
+  <router-view />
 </template>
 
 <style scoped></style>
