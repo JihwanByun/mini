@@ -16,7 +16,7 @@ export const useDataStore = defineStore("dataStore", {
           );
           const pageData = res.data?.Grduemplymtuniv?.[1]?.row || [];
           allData.push(...pageData);
-          // console.log(`페이지 ${page} 데이터 로드 완료`);
+          console.log(`페이지 ${page} 데이터 로드 완료`);
         } catch (err) {
           console.error(`페이지 ${page} 데이터 로드 실패:`, err);
         }

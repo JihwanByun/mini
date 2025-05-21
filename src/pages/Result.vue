@@ -22,32 +22,44 @@
       @keyup.enter="applyMajorQuery"
     />
 
-    <div
+    <!-- 데이터 카드 -->
+    <router-link
       v-for="data in filteredDatas"
       :key="data.SCHOOL_NM + data.MJR_NM"
-      class="w-[1000px] bg-[#e8dcca] rounded-2xl p-4 my-4 shadow-md"
+      :to="{
+        path: '/detail',
+        query: { school: data.SCHOOL_NM, major: data.MJR_NM },
+      }"
+      class="w-[1000px] bg-[#e8dcca] border-0.3 shadow-md rounded-2xl p-4 my-4 flex flex-col gap-2 no-underline hover:bg-[#d0bca5] transition-colors duration-200"
     >
-      <div class="flex justify-between">
-        <h2 class="text-xl font-bold">{{ data.SCHOOL_NM }}</h2>
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-bold text-gray-800">
+          {{ data.SCHOOL_NM }}
+        </h2>
         <span class="text-sm text-gray-500">{{ data.STD_YY }}년도</span>
       </div>
+
       <div class="grid grid-cols-2 gap-4 mt-2 text-gray-700">
         <div>
           <span class="font-semibold">단과대학명:</span>
-          {{ data.MJR_NM || "없음" }}
+          <span class="ml-2">{{ data.MJR_NM || "없음" }}</span>
         </div>
         <div>
-          <span class="font-semibold">설립 구분:</span> {{ data.FOUND_DIV_NM }}
+          <span class="font-semibold">설립 구분:</span>
+          <span class="ml-2">{{ data.FOUND_DIV_NM }}</span>
         </div>
         <div>
           <span class="font-semibold">총 졸업자 수:</span>
-          {{ data.MALE_GRA_CNT + data.FEMALE_GRA_CNT }}
+          <span class="ml-2">
+            {{ data.MALE_GRA_CNT + data.FEMALE_GRA_CNT }}
+          </span>
         </div>
         <div>
-          <span class="font-semibold">취업률:</span> {{ data.EMPLYMT_RT }}%
+          <span class="font-semibold">취업률:</span>
+          <span class="ml-2">{{ data.EMPLYMT_RT }}%</span>
         </div>
       </div>
-    </div>
+    </router-link>
 
     <p v-if="filteredDatas.length === 0" class="mt-10 text-gray-400">
       검색 결과가 없습니다.
