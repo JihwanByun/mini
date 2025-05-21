@@ -38,6 +38,8 @@ export async function fetchTrainingList({
           })
           allResults.push(...(res.data.srchList || []))
         }
+
+        console.log(allResults.length)
     
         return allResults
       } catch (error) {
