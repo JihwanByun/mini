@@ -21,6 +21,7 @@
       class="w-[300px] p-2 rounded border border-gray-300 mb-4"
       @keyup.enter="applyMajorQuery"
     />
+    <Weather class="absolute top-[0px] right-[0px]" />
 
     <!-- 데이터 카드 -->
     <router-link
@@ -71,6 +72,7 @@
 import { onMounted, computed, ref } from "vue";
 import { useDataStore } from "../stores/dataStore";
 import { useRoute } from "vue-router";
+import Weather from "../components/Weather.vue";
 
 const store = useDataStore();
 const route = useRoute();
