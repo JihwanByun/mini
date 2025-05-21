@@ -6,7 +6,7 @@ import Detail from "../pages/Detail.vue";
 const routes = [
   { path: "/", name: "Main", component: Home },
   { path: "/result", name: "Result", component: Result },
-  { path: "/detail", name: "Detail", component: Detail },
+  { path: "/detail", name: "Detail", component: Detail, props: true },
 ];
 
 const router = createRouter({
