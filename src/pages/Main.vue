@@ -1,4 +1,9 @@
 <template>
+  <div
+    class="min-h-screen w-full bg-cover bg-center"
+    style="background-image: url('/background.png');"
+  ></div>
+
   <header
     class="w-[100%] h-[60px] bg-[#3B3B3B] flex items-center justify-center text-[20px] text-white font-[800];"
   >
