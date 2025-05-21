@@ -6,21 +6,63 @@
   </header>
 
   <div class="w-full bg-white flex flex-col items-center mt-4">
-    <!-- 대학명 검색창 -->
-    <input
-      v-model="schoolQuery"
-      placeholder="대학명 검색"
-      class="w-[300px] p-2 rounded border border-gray-300 mb-4"
-      @keyup.enter="applySchoolQuery"
-    />
+    <!-- 가로 정렬 검색창 (배경, 테두리 없음) -->
+    <div
+      class="w-full max-w-[1000px] flex flex-col md:flex-row justify-center gap-4 mb-8"
+    >
+      <!-- 대학명 검색 -->
+      <div class="relative flex-1 max-w-[400px]">
+        <input
+          v-model="schoolQuery"
+          placeholder="대학명 검색"
+          class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-800"
+          @keyup.enter="applySchoolQuery"
+        />
+        <svg
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+          />
+        </svg>
+      </div>
 
-    <!-- 단과대학명 검색창 -->
-    <input
-      v-model="majorQuery"
-      placeholder="단과대학명 검색"
-      class="w-[300px] p-2 rounded border border-gray-300 mb-4"
-      @keyup.enter="applyMajorQuery"
-    />
+      <!-- 단과대학 검색 -->
+      <div class="relative flex-1 max-w-[400px]">
+        <input
+          v-model="majorQuery"
+          placeholder="단과대학명 검색"
+          class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-800"
+          @keyup.enter="applyMajorQuery"
+        />
+        <svg
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+          />
+        </svg>
+      </div>
+      <!-- 버튼 추가 -->
+      <router-link
+        to="/another-page"
+        class="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-center whitespace-nowrap"
+      >
+        다른 페이지로 이동
+      </router-link>
+    </div>
 
     <!-- 데이터 카드 -->
     <router-link

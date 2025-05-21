@@ -9,7 +9,7 @@ export const useDataStore = defineStore("dataStore", {
     async fetchDatas() {
       const accesskey = "b973ba2d24e2416793bf5a5ef7463b9e";
       const allData = [];
-      for (let page = 1; page <= 150; page++) {
+      for (let page = 1; page <= 10; page++) {
         try {
           const res = await axios.get(
             `https://openapi.gg.go.kr/Grduemplymtuniv?KEY=${accesskey}&Type=json&pIndex=${page}&pSize=100`
