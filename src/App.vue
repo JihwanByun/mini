@@ -1,10 +1,10 @@
 <script setup>
 import Main from "./pages/Home.vue";
 import Weather from "./components/Weather.vue";
+import Home from "./pages/Home.vue";
 </script>
 
 <template>
-  <!-- <Main></Main> -->
   <router-view />
 </template>
 
