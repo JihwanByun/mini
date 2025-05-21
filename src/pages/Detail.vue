@@ -67,56 +67,33 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
-
-const accesskey = "b973ba2d24e2416793bf5a5ef7463b9e";
+import { useDataStore } from "../stores/dataStore";
 
 const route = useRoute();
+const store = useDataStore();
+
 const schoolName = route.query.school || "";
 const majorName = route.query.major || "";
 
 const normalize = (str) =>
-  str.toLowerCase().replace(/\s/g, "").replace(/_/g, "");
+  (str || "").toLowerCase().replace(/\s/g, "").replace(/_/g, "");
 
-const schoolData = ref(null);
-const loading = ref(true);
+const schoolData = computed(() => {
+  return store.datas.find((item) => {
+    const schoolMatch = normalize(item.SCHOOL_NM) === normalize(schoolName);
+    const majorMatch = majorName
+      ? normalize(item.MJR_NM) === normalize(majorName)
+      : true;
+    return schoolMatch && majorMatch;
+  });
+});
 
-const fetchDetail = async () => {
-  loading.value = true;
-  try {
-    const res = await axios.get(
-      `https://openapi.gg.go.kr/Grduemplymtuniv?KEY=${accesskey}&Type=json&pIndex=1&pSize=100`
-    );
-
-    if (res.data && res.data.Grduemplymtuniv && res.data.Grduemplymtuniv[1]) {
-      const allData = res.data.Grduemplymtuniv[1].row;
-
-      const found = allData.find((item) => {
-        const schoolNm = item.SCHOOL_NM ?? "";
-        const mjrNm = item.MJR_NM ?? "";
-
-        const schoolMatch = normalize(schoolNm) === normalize(schoolName);
-        const majorMatch = majorName
-          ? normalize(mjrNm) === normalize(majorName)
-          : true;
-
-        return schoolMatch && majorMatch;
-      });
-
-      schoolData.value = found || null;
-    } else {
-      schoolData.value = null;
-    }
-  } catch (error) {
-    schoolData.value = null;
-  } finally {
-    loading.value = false;
+onMounted(async () => {
+  if (store.datas.length === 0) {
+    await store.fetchDatas();
   }
-};
-
-onMounted(() => {
-  fetchDetail();
 });
 </script>

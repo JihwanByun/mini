@@ -5,7 +5,8 @@
     style="background-image: url('/background.png')"
   >
     <img src="/NextStep_Logo.png" class="w-[700px] mb-[130px]" id="floating" />
-    <span class="absolute mt-[140px] text-white font-[800] text-[21px]"
+    <span
+      class="absolute mt-[140px] text-white font-[800] text-[21px] opacity-90"
       >이 데이터는 가능성을 증명해요. 당신의 가능성도 예외는 아니에요.</span
     >
 
