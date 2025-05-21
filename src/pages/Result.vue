@@ -2,7 +2,7 @@
   <header
     class="w-full h-[60px] bg-[#3B3B3B] flex items-center justify-center text-white text-[20px] font-[800]"
   >
-    대학 별 취업현황
+    대학별 취업현황
   </header>
 
   <div class="w-full bg-white flex flex-col items-center mt-4">
@@ -74,9 +74,12 @@
             d="M9 5l7 7-7 7"
           ></path>
         </svg>
-        페이지 이동
+        내일배움캠프 보기 
       </router-link>
     </div>
+
+    <Weather class="absolute top-[0px] right-[0px]" />
+
 
     <!-- 데이터 카드 -->
     <router-link
