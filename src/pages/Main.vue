@@ -1,9 +1,10 @@
 <template>
   <header
-    class="w-[100%] h-[60px] bg-[#3B3B3B] flex items-center justify-center text-[20px] text-white font-[800]"
+    class="w-[100%] h-[60px] bg-[#3B3B3B] flex items-center justify-center text-[20px] text-white font-[800];"
   >
     대학 별 취업현황
   </header>
+
   <div
     class="w-[100%] h-[auto] bg-white flex flex-col justify-center items-center mt-[10px]"
   >
@@ -47,6 +48,7 @@ const BASE_URL = "https://openapi.gg.go.kr/Grduemplymtuniv";
 
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import Weather from "../components/Weather.vue";
 
 const datas = ref([]);
 const handleSubmit = async () => {
